@@ -1,0 +1,51 @@
+{
+    "pipeline": {
+      "title": "RNAseq Analysis Pipeline | Polly DIY",
+      "machineType": "mi5xlarge", 
+      "tag": "run_pipeline_v0.2"
+    },
+    "components": [
+      {
+        "component_string": "pca",
+        "parameters": {
+          "SOURCE_OMIXATLAS": "1668142600760",
+          "DATASETS": [
+              "GSE168023_GPL18573_raw",
+              "GSE168023_GPL24676_raw",
+              "GSE114647_GPL16791_raw"
+          ],
+          "NR_GENES": "1500",
+          "PERFORM_NORMALIZATION": "TRUE",
+          "RESULTS_DIR": "PCA_GEO_01",
+          "DEP_DIR": "mod_datasets"
+        }
+      },
+      {
+        "component_string": "normalisation",
+        "parameters": {
+          "SOURCE_OMIXATLAS": "1668142600760",
+          "DATASETS": [
+            "GSE168023_GPL18573_raw",
+            "GSE168023_GPL24676_raw",
+            "GSE114647_GPL16791_raw"
+          ],
+          "RESULTS_DIR": "NORM_GEO_01",
+          "DEP_DIR": "mod_datasets"
+        }
+      },
+      {
+        "component_string": "gdx",
+        "parameters": {
+          "SOURCE_OMIXATLAS": "1668142600760",
+          "DATASETS": [
+            "GSE168023_GPL18573_raw",
+            "GSE168023_GPL24676_raw",
+            "GSE114647_GPL16791_raw"
+          ],
+          "RESULTS_DIR": "GDX_GEO_01",
+          "DEP_DIR": "mod_datasets",
+          "COHORT_CSV_PATH": "cohort.csv"
+        }
+      }
+    ]
+}

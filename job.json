@@ -1,0 +1,10 @@
+{
+    "image": "docker.polly.elucidata.io/elucidata/spotfire_consumption_pipelines",
+    "tag": "submit_jobs_v0.2",
+    "name": "Polly DIY pipeline: Submit jobs",
+    "machineType": "mi5xlarge",
+    "env": {
+        "WORKSPACE_ID": 10917,
+        "COMPONENT_JSON_PATH": "workflow.json"
+    }
+}
